@@ -67,10 +67,13 @@ def  plot_me():
         a_c += 4
         a_i += 4
         a_e += 4
-        plotter(ax=axes[a_m], data=plot_data[k]['mem'], key=k, name='Memory', col='m')
-        plotter(ax=axes[a_c], data=plot_data[k]['cpu'], key=k, name='CPU', col='c')
-        plotter(ax=axes[a_i], data=plot_data[k]['net_i'], key=k, name='NetI', col='g')
-        plotter(ax=axes[a_e], data=plot_data[k]['net_e'], key=k, name='NetE', col='r')
+        try:
+            plotter(ax=axes[a_m], data=plot_data[k]['mem'], key=k, name='Memory', col='m')
+            plotter(ax=axes[a_c], data=plot_data[k]['cpu'], key=k, name='CPU', col='c')
+            plotter(ax=axes[a_i], data=plot_data[k]['net_i'], key=k, name='NetI', col='g')
+            plotter(ax=axes[a_e], data=plot_data[k]['net_e'], key=k, name='NetE', col='r')
+        except IndexError:
+            print('index error')
     fig.suptitle('ShellMon Experiment')
 
 
