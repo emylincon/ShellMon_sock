@@ -151,7 +151,15 @@ def receiver_loop(conn, addr):
             show_graphs()
 
 
+def ip_address():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect(("8.8.8.8", 80))
+    return s.getsockname()[0]
+
+
 while True:
+    os.system('clear')
+    print("IP address: {}".format(ip_address()))
     print('Listening...')
     conn, addr = s.accept()
     print('Connection Address :', addr)
